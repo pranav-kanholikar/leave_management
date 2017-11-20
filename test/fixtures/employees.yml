@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fname: MyString
+  lname: MyString
+  emp_no: 1
+  date_of_joining: 2017-11-20
+  date_of_termination: 2017-11-20
+  department: MyString
+  designation: MyString
+  lead: MyString
+  manager: MyString
+  active: false
+
+two:
+  fname: MyString
+  lname: MyString
+  emp_no: 1
+  date_of_joining: 2017-11-20
+  date_of_termination: 2017-11-20
+  department: MyString
+  designation: MyString
+  lead: MyString
+  manager: MyString
+  active: false
