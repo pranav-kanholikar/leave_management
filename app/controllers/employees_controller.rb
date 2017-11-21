@@ -14,6 +14,7 @@ class EmployeesController < ApplicationController
 
   # GET /employees/new
   def new
+    @employer = Employer.find_by(id: params[:employee_id])
     @employee = Employee.new
   end
 
@@ -24,7 +25,8 @@ class EmployeesController < ApplicationController
   # POST /employees
   # POST /employees.json
   def create
-    @employee = Employee.new(employee_params)
+    @employer = Employer.find_by(id: params[:employee_id])
+    @employee = @employer.employees.new(employee_params)
 
     respond_to do |format|
       if @employee.save

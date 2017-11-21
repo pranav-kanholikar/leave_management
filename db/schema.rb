@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171120135516) do
+ActiveRecord::Schema.define(version: 20171121103511) do
 
-  create_table "employees", force: :cascade do |t|
+  create_table "employees", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "fname"
     t.string "lname"
     t.integer "emp_no"
@@ -27,9 +27,10 @@ ActiveRecord::Schema.define(version: 20171120135516) do
     t.datetime "updated_at", null: false
     t.string "email"
     t.integer "employer_id"
+    t.integer "user_id"
   end
 
-  create_table "employers", force: :cascade do |t|
+  create_table "employers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.text "address"
     t.string "city"
@@ -42,9 +43,20 @@ ActiveRecord::Schema.define(version: 20171120135516) do
     t.string "alternative_no"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "leaves", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "employee_id"
+    t.date "leave_from_date"
+    t.date "leave_to_date"
+    t.text "reason"
+    t.integer "no_of_days"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -57,6 +69,13 @@ ActiveRecord::Schema.define(version: 20171120135516) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "phn_no"
+    t.string "role"
+    t.text "address"
+    t.boolean "active", default: true
+    t.date "date_of_birth"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

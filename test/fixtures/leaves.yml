@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  employee_id: 1
+  leave_from_date: 2017-11-21
+  leave_to_date: 2017-11-21
+  reason: MyText
+  no_of_days: 1
+
+two:
+  employee_id: 1
+  leave_from_date: 2017-11-21
+  leave_to_date: 2017-11-21
+  reason: MyText
+  no_of_days: 1
