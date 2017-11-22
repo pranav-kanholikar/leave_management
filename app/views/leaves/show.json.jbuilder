@@ -1,1 +1,1 @@
-json.partial! "leaves/leafe", leafe: @leafe
+json.partial! "leaves/leave", leave: @leave

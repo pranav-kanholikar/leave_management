@@ -1,5 +1,6 @@
-<%= form_for @employee, :html => { :class => "form-horizontal employee" } do |f| %>
 
+<%= form_for @employee, :url => employer_employees_path, :html => { :class => "form-horizontal employee" }, :method => "post" do |f| %>
+<%# form_for employer_employees_path(params[:employer_id]), :html => { :class => "form-horizontal employee" }  %>
   <% if @employee.errors.any? %>
     <div id="error_expl" class="panel panel-danger">
       <div class="panel-heading">
@@ -99,9 +100,9 @@
 
   <div class="form-group">
     <div class="col-lg-offset-2 col-lg-10">
-      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= f.submit "submit", :class => 'btn btn-primary'  %>
       <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                employees_path, :class => 'btn btn-default' %>
+                employer_employees_path, :class => 'btn btn-default' %>
     </div>
   </div>
 
