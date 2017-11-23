@@ -15,7 +15,8 @@ class EmployeesController < ApplicationController
   # GET /employees/new
   def new
     @employer = Employer.find_by(id: params[:employer_id])
-    @employee = Employee.new
+    @employee = User.new
+    @user = User.find_by(id: params[:user_id])
   end
   
 
@@ -28,7 +29,8 @@ class EmployeesController < ApplicationController
   def create                  
     @employer = Employer.find_by(id: params[:employer_id])
     @employee = @employer.employees.new(employee_params)
-
+    @user = User.find_by(id: params[:user_id])
+    @employee = @user.employee.new(employee_params)
     respond_to do |format|
       if @employee.save
         format.html { redirect_to @employee, notice: 'Employee was successfully created.' }
@@ -72,6 +74,8 @@ class EmployeesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def employee_params
-      params.require(:employee).permit(:fname, :lname, :emp_no, :date_of_joining, :date_of_termination, :department, :designation, :lead, :manager, :active)
+      params.require(:employee).permit(:fname, :lname, :emp_no, :date_of_joining, :date_of_termination, :department, :designation, :lead, :manager, :active, :user_id, :email)
     end
 end
+
+
