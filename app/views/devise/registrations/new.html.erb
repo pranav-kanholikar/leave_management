@@ -56,7 +56,7 @@
   </div>
 
       <div class="form-group">
-      <%= f.select("role", "role_id", Role.all.collect {|r| [ r.name, r.id ] }, { include_blank: true })%>
+      <%# <%= f.select("role", "role_id", Role.all.collect {|r| [ r.name, r.id ] }, { include_blank: true })%> 
     <%# <select name="user[role]" , class: 'form-control'>
       <option value="">Please select</option>
       <option value="employer" selected="selected">Employer</option>
